@@ -13,11 +13,11 @@ export const OrganizationRouting = RouterModule.forChild([
         children: [
             {
                 path: 'list',
-                loadChildren: 'src/app/organizations/list#OrganizationListModule',
+                loadChildren: () => import('src/app/organizations/list').then(m => m.OrganizationListModule),
             },
             {
                 path: 'dashboard',
-                loadChildren: 'src/app/organizations/dashboard#OrganizationDashboardModule',
+                loadChildren: () => import('src/app/organizations/dashboard').then(m => m.OrganizationDashboardModule),
             },
         ],
     },

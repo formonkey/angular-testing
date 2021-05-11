@@ -3,6 +3,6 @@ import { RouterModule } from '@angular/router';
 export const BootstrapRouting = RouterModule.forRoot([
     {
         path: '',
-        loadChildren: 'src/app/pages/organizations#OrganizationModule',
+        loadChildren: () => import('src/app/pages/organizations').then(m => m.OrganizationModule),
     },
-]);
+], { relativeLinkResolution: 'legacy' });
